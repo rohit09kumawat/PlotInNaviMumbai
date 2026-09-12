@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  /* Mumbai Luxury Real Estate Colour Tokens */
+  --color-ink:    #061320;
+  --color-canopy: #071524;
+  --color-moss:   #10263E;
+  --color-sprout: #D4AF37;
+  --color-amber:  #C69234;
+  --color-paper:  #F2EAE0;
+  --color-panel:  #F9F4EC;
+  --color-sand:   #E6D7C3;
+  --color-line:   #D0BFAB;
+  --color-muted:  #4E6174;
+
+  /* Typography */
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-plex-mono), ui-monospace, monospace;
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius:    8px;
+  --radius-lg: 16px;
+
+  /* Luxury Elevations & Shadows */
+  --shadow-card:  0 2px 4px rgba(7, 21, 36, 0.04), 0 8px 24px rgba(7, 21, 36, 0.08);
+  --shadow-float: 0 12px 36px rgba(7, 21, 36, 0.22);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* shadcn variable bridge */
+:root {
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --card: #FCFAF6;
+  --card-foreground: var(--color-ink);
+  --primary: var(--color-canopy);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--color-panel);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-panel);
+  --muted-foreground: var(--color-muted);
+  --accent: var(--color-sprout);
+  --accent-foreground: var(--color-ink);
+  --border: var(--color-line);
+  --input: var(--color-line);
+  --ring: var(--color-sprout);
+  --destructive: var(--color-amber);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; }
+  :focus-visible {
+    outline: 2px solid var(--color-sprout);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  ::selection { background: var(--color-sprout); color: var(--color-ink); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Leaflet map styling */
+.custom-leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-paper) !important;
+  color: var(--color-ink) !important;
+  border: 1px solid var(--color-line) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-card) !important;
+  padding: 0px !important;
+  overflow: hidden;
+}
+
+.custom-leaflet-popup .leaflet-popup-content {
+  margin: 0px !important;
+  line-height: inherit !important;
+}
+
+.custom-leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-paper) !important;
+  border-left: 1px solid var(--color-line) !important;
+  border-bottom: 1px solid var(--color-line) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.custom-leaflet-popup .leaflet-popup-close-button {
+  color: var(--color-muted) !important;
+}
